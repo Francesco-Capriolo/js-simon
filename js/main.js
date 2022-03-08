@@ -28,11 +28,11 @@ document.getElementById("random-number").addEventListener('click', function () {
 
 function cronometro() {
     numberList.innerHTML = "";
-
+    const orderList = ["primo", "secondo", "terzo", "quarto", "quinto"];
     let diff = 0;
 
     for (let i = 0; i < createNumber.length; i++) {
-        let number = parseInt(prompt("quale è il primo numero generato?"));
+        let number = parseInt(prompt(`quale è il ${orderList[i]} numero generato?`));
 
         diff = i
 
