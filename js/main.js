@@ -11,31 +11,38 @@ Individuate gli elementi di cui avete bisogno per realizzare il programma. */
 const numberList = document.getElementById("number-generate");
 let time = 0;
 let clock;
+let createNumber = [];
+
 
 document.getElementById("random-number").addEventListener('click', function () {
     numberList.innerHTML = "";
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 2; i++) {
         let number = Math.floor((Math.random() * 50) + 1);
-        numberList.innerHTML += " " + number;
+        createNumber.push(number);
+        numberList.innerHTML = createNumber;
     }
     setTimeout(cronometro, 3000);
-
-
 });
 
 
 function cronometro() {
-    const listNumber = [numberList];
     numberList.innerHTML = "";
-    let number = parseInt(prompt("quale è il primo numero generato?"));
-    let createNumber = [];
 
-    if (listNumber === number.value) {
-        numberList.innerHTML = "hai indovinato";
-    } else {
-        numberList.innerHTML = "non hai indovinato";
+    let diff = 0;
+
+    for (let i = 0; i < createNumber.length; i++) {
+        let number = parseInt(prompt("quale è il primo numero generato?"));
+
+        diff = i
+
+        if (createNumber[i] === number) {
+            document.getElementById("number-right").innerHTML = `hai indovinato ${i+1} numero/i`;
+            numberList.innerHTML += `<p>hai indovinato il numero ${createNumber[i]}</p>`;
+        } else {
+            numberList.innerHTML += `<p>non hai indovinato il numero ${createNumber[i]}</p>`;
+            document.getElementById("number-wrong").innerHTML = `non hai indovinato ${i+1} numero/i`;
+        }
     }
-
 }
 
 
