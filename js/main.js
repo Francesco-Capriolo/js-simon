@@ -31,17 +31,22 @@ function cronometro() {
     const orderList = ["primo", "secondo", "terzo", "quarto", "quinto"];
     let diff = 0;
 
+    let ok = 0;
+    let ko = 0;
+
     for (let i = 0; i < createNumber.length; i++) {
         let number = parseInt(prompt(`quale è il ${orderList[i]} numero generato?`));
 
         diff = i
 
         if (createNumber[i] === number) {
-            document.getElementById("number-right").innerHTML = `hai indovinato ${i+1} numero/i`;
+            ok++;
+            document.getElementById("number-right").innerHTML = `hai indovinato ${ok} numero/i`;
             numberList.innerHTML += `<p>hai indovinato il numero ${createNumber[i]}</p>`;
         } else {
+            ko++;
             numberList.innerHTML += `<p>non hai indovinato il numero ${createNumber[i]}</p>`;
-            document.getElementById("number-wrong").innerHTML = `non hai indovinato ${i+1} numero/i`;
+            document.getElementById("number-wrong").innerHTML = `non hai indovinato ${ko} numero/i`;
         }
     }
 }
