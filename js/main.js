@@ -16,6 +16,7 @@ let createNumber = [];
 
 document.getElementById("random-number").addEventListener('click', function () {
     numberList.innerHTML = "";
+    createNumber = [];
     for (let i = 0; i < 2; i++) {
         let number = Math.floor((Math.random() * 50) + 1);
         createNumber.push(number);
