@@ -8,7 +8,45 @@ Pensate prima in italiano.
 Dividete in piccoli problemi la consegna.
 Individuate gli elementi di cui avete bisogno per realizzare il programma. */
 
-function generateRandomUnique(blacklist, min, max) {
+const numberList = document.getElementById("number-generate");
+let time = 0;
+let clock;
+
+document.getElementById("random-number").addEventListener('click', function () {
+    numberList.innerHTML = "";
+    for (let i = 0; i < 1; i++) {
+        let number = Math.floor((Math.random() * 50) + 1);
+        numberList.innerHTML += " " + number;
+    }
+    setTimeout(cronometro, 3000);
+
+
+});
+
+
+function cronometro() {
+    const listNumber = [numberList];
+    numberList.innerHTML = "";
+    let number = parseInt(prompt("quale è il primo numero generato?"));
+    let createNumber = [];
+
+    if (listNumber === number.value) {
+        numberList.innerHTML = "hai indovinato";
+    } else {
+        numberList.innerHTML = "non hai indovinato";
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* function generateRandomUnique(blacklist, min, max) {
     //crezione della variabile che controlla il numero valido
     let check = false;
     let randomInt;
@@ -28,13 +66,25 @@ function generateRandomUnique(blacklist, min, max) {
 const listNumber = [];
 
 //funziona che genera  5 numeri
-function generateNumber(number, cellsNumber) {
-    //creo un array per contenere le numbere
+function generateNumber(number) {
+    //creo un array per contenere i numeri
     const numberList = [];
     //per ogni numero ne genero una nuova in un'altra cella
     for (let i = 0; i < number; i++) {
-        //aggiungo la funzione che crea le numbere
-        numberList.push(generateRandomUnique(numberList, 1, cellsNumber));
+        //aggiungo la funzione che crea i numeri
+        numberList.push(generateRandomUnique(numberList, 1, 20));
     }
     return numberList;
 }
+
+function generateInnerNumber(number) {
+    const numberGenerate = document.getElementById("number-generate");
+    numberGenerate.innerHTML = "";
+    numberGenerate.innerHTML = generateNumber();
+
+}
+
+document.getElementById("random-number").addEventListener('click', function () {
+
+    generateInnerNumber()
+}) */
